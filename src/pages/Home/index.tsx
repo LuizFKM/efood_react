@@ -3,6 +3,8 @@ import Dish from '../../models/Dishes'
 
 import Hioki from '../../assets/images/Hioki_sushi.png'
 import Macarrao from '../../assets/images/Macarrao.png'
+import { Container } from '../../styles'
+import Header from '../../components/Header'
 
 const pratos: Dish[] = [
   {
@@ -51,7 +53,7 @@ const pratos: Dish[] = [
     title: 'La Dolce Vita Trattoria'
   },
   {
-    id: 5,
+    id: 6,
     categories: ['Italiana'],
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
@@ -63,7 +65,10 @@ const pratos: Dish[] = [
 
 const Home = () => (
   <>
-    <ProductList dishes={pratos} />
+    <Header />
+    <Container>
+      <ProductList dishes={pratos} />
+    </Container>
   </>
 )
 

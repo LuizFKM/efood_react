@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   position: relative;
   max-width: 472px;
   margin-top: 48px;
-
+  color: ${cores.salmao};
   img {
     width: 100%;
   }

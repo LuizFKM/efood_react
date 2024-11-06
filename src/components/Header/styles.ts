@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
 export const HeaderBackground = styled.header`
   width: 100%;
@@ -17,6 +18,7 @@ export const Logo = styled.img`
 `
 
 export const Slogan = styled.h2`
+  color: ${cores.salmao};
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;

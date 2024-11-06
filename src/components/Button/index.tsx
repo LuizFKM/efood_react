@@ -1,6 +1,6 @@
 import { ButtonContainer, ButtonLink } from './style'
 
-type Props = {
+export type Props = {
   type: 'button' | 'link'
   title: string
   to?: string

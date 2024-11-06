@@ -35,7 +35,7 @@ const Product = ({ title, categories, description, rate, image }: Props) => (
         </CardRate>
       </CardTitle>
       <p>{description}</p>
-      <Button type="link" to="/produto" title="Saiba mais sobre o prato">
+      <Button type="link" to="/perfil" title="Saiba mais sobre o prato">
         Saiba Mais
       </Button>
     </CardContent>

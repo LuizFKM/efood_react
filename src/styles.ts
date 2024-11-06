@@ -19,7 +19,13 @@ export const GlobalCss = createGlobalStyle`
 
   body {
     background-color: ${cores.offwhite};
-    color: ${cores.salmao};
+
+  }
+
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
   }
 `
 export const Container = styled.div`
