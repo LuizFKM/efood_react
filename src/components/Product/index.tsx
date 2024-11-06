@@ -5,7 +5,8 @@ import {
   CardContent,
   CardRate,
   CardTitle,
-  CategoryInfos
+  CategoryInfos,
+  ContainerDescription
 } from './styles'
 import Estrela from '../../assets/images/estrela.png'
 import { TagContainer } from '../Tag/styles'
@@ -34,7 +35,9 @@ const Product = ({ title, categories, description, rate, image }: Props) => (
           <img src={Estrela} alt="" />
         </CardRate>
       </CardTitle>
-      <p>{description}</p>
+      <ContainerDescription>
+        <p>{description}</p>
+      </ContainerDescription>
       <Button type="link" to="/perfil" title="Saiba mais sobre o prato">
         Saiba Mais
       </Button>

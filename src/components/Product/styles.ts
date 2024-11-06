@@ -29,9 +29,15 @@ export const CardRate = styled.div`
 export const CardContent = styled.div`
   padding: 8px;
   p {
-    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 400;
   }
 `
+export const ContainerDescription = styled.div`
+  max-width: 456px;
+  padding-bottom: 16px;
+`
+
 export const CategoryInfos = styled.div`
   position: absolute;
   top: 8px;
