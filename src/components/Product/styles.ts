@@ -24,9 +24,15 @@ export const CardTitle = styled.div`
 export const CardRate = styled.div`
   display: flex;
   gap: 8px;
+
+  img {
+    object-fit: contain;
+  }
 `
 
 export const CardContent = styled.div`
+  border: solid 1px ${cores.salmao};
+  border-top: none;
   padding: 8px;
   p {
     font-size: 14px;

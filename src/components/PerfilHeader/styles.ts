@@ -44,6 +44,7 @@ export const Title = styled.p`
 `
 
 export const Subtitle = styled.h3`
+  font-size: 32px;
   margin-bottom: 32px;
   font-weight: 900;
   color: ${cores.branco};

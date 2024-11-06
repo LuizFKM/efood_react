@@ -9,25 +9,32 @@ export const MenuCardContainer = styled.div`
   height: 338px;
   background-color: ${cores.salmao};
   color: ${cores.bege};
-  gap: 8px;
   display: flex;
   flex-direction: column;
   padding: 8px;
   margin-bottom: 32px;
 
+  img {
+    padding-bottom: 8px;
+  }
+
   h3 {
     font-weight: 900;
     font-size: 16px;
+    margin-bottom: 8px;
   }
 
   p {
+    line-height: 22px;
     font-weight: 400;
     font-size: 14px;
   }
 
   ${ButtonContainer} {
+    padding: 4px;
     margin-top: 8px;
     width: 100%;
+    height: 24px;
     background-color: ${cores.bege};
     color: ${cores.salmao};
     font-weight: 700;

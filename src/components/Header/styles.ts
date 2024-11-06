@@ -11,6 +11,7 @@ export const HeaderBackground = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 80px;
 `
 
 export const Logo = styled.img`
