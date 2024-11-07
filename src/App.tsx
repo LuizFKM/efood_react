@@ -1,16 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import { GlobalCss } from './styles'
-import Home from './pages/Home'
-import Perfil from './pages/Perfil'
-import Footer from './components/Footer'
 
-const Rotas = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/perfil" element={<Perfil />} />
-  </Routes>
-)
+import Footer from './components/Footer'
+import Rotas from './routes'
 
 function App() {
   return (

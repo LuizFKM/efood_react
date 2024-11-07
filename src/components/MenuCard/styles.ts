@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-import { Props } from '../Button'
 import { ButtonContainer } from '../Button/style'
 
 export const MenuCardContainer = styled.div`
