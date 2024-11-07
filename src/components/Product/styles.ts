@@ -8,7 +8,6 @@ export const CardContainer = styled.div`
   background-color: ${cores.branco};
   position: relative;
   max-width: 472px;
-  margin-top: 48px;
   color: ${cores.salmao};
   img {
     width: 100%;

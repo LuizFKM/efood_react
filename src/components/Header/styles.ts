@@ -11,7 +11,7 @@ export const HeaderBackground = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 32px;
 `
 
 export const Logo = styled.img`
@@ -19,6 +19,7 @@ export const Logo = styled.img`
 `
 
 export const Slogan = styled.h2`
+  font-size: 2.3rem;
   color: ${cores.salmao};
   font-weight: bold;
   text-align: center;
