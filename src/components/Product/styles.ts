@@ -7,11 +7,13 @@ export const CardContainer = styled.div`
   flex-direction: column;
   background-color: ${cores.branco};
   position: relative;
-  max-width: 472px;
+  width: 472px;
   margin-top: 48px;
   color: ${cores.salmao};
+  object-fit: contain;
   img {
-    width: 100%;
+    max-width: 472px;
+    max-height: 217px;
   }
 `
 

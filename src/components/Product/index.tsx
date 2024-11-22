@@ -10,33 +10,33 @@ import {
 } from './styles'
 import Estrela from '../../assets/images/estrela.png'
 import { TagContainer } from '../Tag/styles'
+import { Pratos } from '../../pages/Home'
 
-type Props = {
-  title: string
-  categories: string[]
-  description: string
-  rate: string
-  image: string
-}
-
-const Product = ({ title, categories, description, rate, image }: Props) => (
+const Product = ({
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa
+}: Pratos) => (
   <CardContainer>
     <CategoryInfos>
-      {categories.map((category) => (
-        <TagContainer key={category}>{category}</TagContainer>
-      ))}
+      {destacado ? <TagContainer>Destaque da Semana</TagContainer> : null}
+      <TagContainer key={id}>{tipo}</TagContainer>
     </CategoryInfos>
-    <img src={image} alt={title} />
+    <img src={capa} alt={titulo} />
     <CardContent>
       <CardTitle>
-        <h3>{title}</h3>
+        <h3>{titulo}</h3>
         <CardRate>
-          <h3>{rate}</h3>
-          <img src={Estrela} alt="" />
+          <h3>{avaliacao}</h3>
+          {destacado ? <img src={Estrela} alt="Estrela" /> : null}
         </CardRate>
       </CardTitle>
       <ContainerDescription>
-        <p>{description}</p>
+        <p>{descricao}</p>
       </ContainerDescription>
       <Button type="link" to="/perfil" title="Saiba mais sobre o prato">
         Saiba Mais

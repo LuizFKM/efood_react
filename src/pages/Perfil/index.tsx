@@ -1,13 +1,13 @@
 import Pizza from '../../assets/images/Pizza_marquerita.png'
-import Macarrao from '../../assets/images/Macarrao.png'
+
 import { Container } from '../../styles'
 import Menu from '../../models/Menu'
 
 import PerfilHeader from '../../components/PerfilHeader'
-import MenuCard from '../../components/MenuCard'
+
 import MenuList from '../../components/MenuList'
 
-const cards: Menu[] = [
+const card: Menu[] = [
   {
     id: 1,
     description:
@@ -52,13 +52,15 @@ const cards: Menu[] = [
   }
 ]
 
-const Perfil = () => (
-  <>
-    <PerfilHeader />
-    <Container>
-      <MenuList cards={cards} />
-    </Container>
-  </>
-)
+const Perfil = () => {
+  return (
+    <>
+      <PerfilHeader />
+      <Container>
+        <MenuList cards={card} />
+      </Container>
+    </>
+  )
+}
 
 export default Perfil
