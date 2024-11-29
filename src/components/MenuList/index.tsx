@@ -1,27 +1,25 @@
-import Menu from '../../models/Menu'
+import { Pratos } from '../../pages/Home'
 import MenuCard from '../MenuCard'
-
 import { ListContainer } from './styles'
 
-export type Props = {
-  cards: Menu[]
+type MenuListProps = {
+  cards: Pratos[]
 }
 
-const MenuList = ({ cards }: Props) => {
-  return (
-    <>
-      <ListContainer>
-        {cards.map((card) => (
+const MenuList: React.FC<MenuListProps> = ({ cards }) => (
+  <ListContainer>
+    {cards.flatMap(
+      ({ cardapio }) =>
+        cardapio?.map(({ id, nome, foto, descricao }) => (
           <MenuCard
-            description={card.description}
-            image={card.image}
-            title={card.title}
-            key={card.id}
+            key={id}
+            title={nome}
+            image={foto}
+            description={descricao}
           />
-        ))}
-      </ListContainer>
-    </>
-  )
-}
+        )) || []
+    )}
+  </ListContainer>
+)
 
 export default MenuList

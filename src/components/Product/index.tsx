@@ -38,7 +38,7 @@ const Product = ({
       <ContainerDescription>
         <p>{descricao}</p>
       </ContainerDescription>
-      <Button type="link" to="/perfil" title="Saiba mais sobre o prato">
+      <Button type="link" to={`/perfil/${id}`} title="Saiba mais sobre o prato">
         Saiba Mais
       </Button>
     </CardContent>

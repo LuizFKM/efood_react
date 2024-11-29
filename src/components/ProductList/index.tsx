@@ -17,7 +17,7 @@ const ProductList = ({ dishes }: Props) => (
         avaliacao={dish.avaliacao}
         titulo={dish.titulo}
         destacado={dish.destacado}
-        id={0}
+        id={dish.id}
       />
     ))}
   </List>

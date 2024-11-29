@@ -1,63 +1,28 @@
-import Pizza from '../../assets/images/Pizza_marquerita.png'
-
+import { Pratos } from '../../pages/Home'
 import { Container } from '../../styles'
-import Menu from '../../models/Menu'
 
 import PerfilHeader from '../../components/PerfilHeader'
 
 import MenuList from '../../components/MenuList'
-
-const card: Menu[] = [
-  {
-    id: 1,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 2,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 3,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 4,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 5,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 6,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: Pizza,
-    title: 'Pizza Marguerita'
-  }
-]
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const Perfil = () => {
+  const { id } = useParams()
+
+  const [pratos, setPratos] = useState<Pratos[]>([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setPratos(res))
+  }, [id])
+
   return (
     <>
-      <PerfilHeader />
+      <PerfilHeader cards={pratos} />
       <Container>
-        <MenuList cards={card} />
+        <MenuList cards={pratos} />
       </Container>
     </>
   )

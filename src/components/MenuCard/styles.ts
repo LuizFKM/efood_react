@@ -14,7 +14,10 @@ export const MenuCardContainer = styled.div`
   margin-bottom: 32px;
 
   img {
+    width: 304px;
+    height: 167px;
     padding-bottom: 8px;
+    object-fit: cover;
   }
 
   h3 {
