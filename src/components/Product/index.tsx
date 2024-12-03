@@ -10,7 +10,7 @@ import {
 } from './styles'
 import Estrela from '../../assets/images/estrela.png'
 import { TagContainer } from '../Tag/styles'
-import { Pratos } from '../../pages/Home'
+import { Restaurantes } from '../../pages/Home'
 
 const Product = ({
   id,
@@ -20,7 +20,7 @@ const Product = ({
   avaliacao,
   descricao,
   capa
-}: Pratos) => (
+}: Restaurantes) => (
   <CardContainer>
     <CategoryInfos>
       {destacado ? <TagContainer>Destaque da Semana</TagContainer> : null}

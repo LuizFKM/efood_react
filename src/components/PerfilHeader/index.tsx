@@ -12,13 +12,13 @@ import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
 import banner from '../../assets/images/imagem_de_fundo.png'
 import { Container } from '../../styles'
-import { Pratos } from '../../pages/Home'
+import { Restaurantes } from '../../pages/Home'
 
-type MenuListProps = {
-  cards: Pratos[]
+type Props = {
+  cards: Restaurantes[]
 }
 
-const PerfilHeader = ({ cards }: MenuListProps) => {
+const PerfilHeader = ({ cards }: Props) => {
   return (
     <>
       <PerfilBackground style={{ backgroundImage: `url(${fundoHeader})` }}>

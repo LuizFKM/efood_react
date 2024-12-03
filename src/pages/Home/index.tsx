@@ -4,7 +4,7 @@ import { Container } from '../../styles'
 import Header from '../../components/Header'
 import { useEffect, useState } from 'react'
 
-export type Pratos = {
+export type Restaurantes = {
   id: number
   titulo: string
   destacado: boolean
@@ -25,13 +25,14 @@ export type Pratos = {
 }
 
 const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<Pratos[]>([])
+  const [restaurantes, setRestaurantes] = useState<Restaurantes[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
       .then((res) => res.json())
       .then((res) => setRestaurantes(res))
   }, [])
+  console.table(restaurantes)
 
   return (
     <>

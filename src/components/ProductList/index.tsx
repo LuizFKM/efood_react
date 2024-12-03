@@ -1,9 +1,9 @@
-import { Pratos } from '../../pages/Home'
+import { Restaurantes } from '../../pages/Home'
 import Product from '../Product'
 import { List } from './styles'
 
 export type Props = {
-  dishes: Pratos[]
+  dishes: Restaurantes[]
 }
 
 const ProductList = ({ dishes }: Props) => (

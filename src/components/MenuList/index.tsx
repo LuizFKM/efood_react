@@ -1,12 +1,12 @@
-import { Pratos } from '../../pages/Home'
+import { Restaurantes } from '../../pages/Home'
 import MenuCard from '../MenuCard'
 import { ListContainer } from './styles'
 
-type MenuListProps = {
-  cards: Pratos[]
+type Props = {
+  cards: Restaurantes[]
 }
 
-const MenuList: React.FC<MenuListProps> = ({ cards }) => (
+const MenuList: React.FC<Props> = ({ cards }) => (
   <ListContainer>
     {cards.flatMap(
       ({ cardapio }) =>
