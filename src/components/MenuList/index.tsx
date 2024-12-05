@@ -6,7 +6,7 @@ type Props = {
   cards: Restaurantes[]
 }
 
-const MenuList: React.FC<Props> = ({ cards }) => (
+const MenuList = ({ cards }: Props) => (
   <ListContainer>
     {cards.flatMap(
       ({ cardapio }) =>

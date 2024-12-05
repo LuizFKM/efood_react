@@ -8,9 +8,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 type Props = {
-  cardapio: Pick<Restaurantes, 'cardapio'>
-  id: Pick<Restaurantes, 'id'>
-  titulo: Pick<Restaurantes, 'titulo'>
+  cardapios: Restaurantes[]
 }
 
 const Perfil = () => {
@@ -21,14 +19,15 @@ const Perfil = () => {
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
-      .then((res) => setPratos(res))
+      .then((res) => {
+        console.table(res)
+        setPratos(res)
+      })
   }, [id])
-
-  console.table(pratos)
 
   return (
     <>
-      <PerfilHeader cards={[pratos]} key={id} />
+      <PerfilHeader key={id} cards={[pratos]} />
       <Container>
         <MenuList cards={[pratos]} />
       </Container>
