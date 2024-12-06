@@ -1,24 +1,26 @@
-import { Restaurantes } from '../../pages/Home'
-import MenuCard from '../MenuCard'
 import { ListContainer } from './styles'
+import MenuCard from '../MenuCard'
 
-type Props = {
-  cards: Restaurantes[]
+export type CardapioItem = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
+
+export type GenericProps<T> = {
+  cards: T[]
+}
+
+type Props = GenericProps<CardapioItem>
 
 const MenuList = ({ cards }: Props) => (
   <ListContainer>
-    {cards.flatMap(
-      ({ cardapio }) =>
-        cardapio?.map(({ id, nome, foto, descricao }) => (
-          <MenuCard
-            key={id}
-            title={nome}
-            image={foto}
-            description={descricao}
-          />
-        )) || []
-    )}
+    {cards.map(({ id, nome, foto, descricao }) => (
+      <MenuCard key={id} title={nome} image={foto} description={descricao} />
+    ))}
   </ListContainer>
 )
 

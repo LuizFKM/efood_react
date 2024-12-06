@@ -38,14 +38,16 @@ export const Slogan = styled.h2`
   margin-bottom: 40px;
 `
 export const Title = styled.p`
-  margin-top: 24px;
   color: ${cores.branco};
   font-weight: 100;
+  padding-top: 26px;
+  font-size: 32px;
 `
 
 export const Subtitle = styled.h3`
   font-size: 32px;
   margin-bottom: 32px;
+  padding-top: 156px;
   font-weight: 900;
   color: ${cores.branco};
 `

@@ -12,7 +12,7 @@ export type Restaurantes = {
   avaliacao: string
   descricao: string
   capa: string
-  cardapio?: [
+  cardapio: [
     {
       foto: string
       preco: number
