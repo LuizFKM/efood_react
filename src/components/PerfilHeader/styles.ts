@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+import { Link } from 'react-router-dom'
+
 export const PerfilBackground = styled.header`
   padding-top: 64px;
   width: 100%;
@@ -19,10 +21,11 @@ export const Header = styled.div`
   align-items: center;
 `
 
-export const HeaderTitle = styled.div`
+export const HeaderTitle = styled(Link)`
   font-weight: 900;
   font-size: 18px;
   color: ${cores.salmao};
+  text-decoration: none;
 `
 export const HeaderCart = styled.div`
   font-weight: 900;

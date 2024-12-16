@@ -14,10 +14,6 @@ import banner from '../../assets/images/imagem_de_fundo.png'
 import { Container } from '../../styles'
 import { Restaurantes } from '../../pages/Home'
 
-// type Props = {
-//   cards: Restaurantes[]
-// }
-
 export type GenericProps<T> = {
   cards: T[]
 }
@@ -30,8 +26,8 @@ const PerfilHeader = ({ cards }: Props) => {
       <PerfilBackground style={{ backgroundImage: `url(${fundoHeader})` }}>
         <Container>
           <Header>
-            <HeaderTitle>Restaurantes</HeaderTitle>
-            <Logo src={logo} alt="" />
+            <HeaderTitle to={'/'}>Restaurantes</HeaderTitle>
+            <Logo src={logo} alt="Logo" />
             <HeaderCart>0 produto(s) no carrinho</HeaderCart>
           </Header>
         </Container>

@@ -6,7 +6,7 @@ const Header = () => (
   <>
     <HeaderBackground style={{ backgroundImage: `url(${fundoHeader})` }}>
       <div>
-        <Logo src={logo} alt="" />
+        <Logo src={logo} alt="logo" />
       </div>
       <Slogan>
         Viva experiências gastronômicas <br /> no confoto da sua casa
