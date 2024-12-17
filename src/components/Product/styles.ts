@@ -9,6 +9,8 @@ export const CardContainer = styled.div`
   position: relative;
   margin-top: 48px;
   color: ${cores.salmao};
+  overflow: hidden;
+
   img {
     object-fit: cover;
     max-width: 472px;
@@ -35,6 +37,11 @@ export const CardContent = styled.div`
   border: solid 1px ${cores.salmao};
   border-top: none;
   padding: 8px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
   p {
     line-height: 22px;
     font-size: 14px;
@@ -42,7 +49,6 @@ export const CardContent = styled.div`
   }
 `
 export const ContainerDescription = styled.div`
-  max-width: 456px;
   padding-bottom: 16px;
 `
 

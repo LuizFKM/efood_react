@@ -45,6 +45,7 @@ export const Title = styled.p`
   font-weight: 100;
   padding-top: 26px;
   font-size: 32px;
+  text-transform: capitalize;
 `
 
 export const Subtitle = styled.h3`
