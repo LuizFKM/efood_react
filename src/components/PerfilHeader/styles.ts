@@ -61,12 +61,25 @@ export const ImgBackground = styled.div`
   background-size: cover;
   height: 280px;
   margin-bottom: 56px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
   .container {
+    position: relative;
     height: 280px;
     font-size: 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
   }
 `

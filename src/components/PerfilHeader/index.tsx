@@ -10,7 +10,6 @@ import {
 } from './styles'
 import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
-import banner from '../../assets/images/imagem_de_fundo.png'
 import { Container } from '../../styles'
 import { Restaurantes } from '../../pages/Home'
 
@@ -32,14 +31,18 @@ const PerfilHeader = ({ cards }: Props) => {
           </Header>
         </Container>
       </PerfilBackground>
-      <ImgBackground style={{ backgroundImage: `url(${banner})` }}>
-        {cards.map((card, id) => (
-          <div className="container" key={id}>
+      {cards.map((card, id) => (
+        <ImgBackground
+          className="overlay"
+          key={id}
+          style={{ backgroundImage: `url(${card.capa})` }}
+        >
+          <div className="container">
             <Title>{card.tipo}</Title>
             <Subtitle>{card.titulo}</Subtitle>
           </div>
-        ))}
-      </ImgBackground>
+        </ImgBackground>
+      ))}
     </>
   )
 }
