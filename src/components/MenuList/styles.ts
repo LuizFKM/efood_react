@@ -17,6 +17,7 @@ export const Modal = styled.div`
   color: ${cores.branco};
   display: none;
   align-items: center;
+  z-index: 1000;
 
   &.visible {
     display: flex;
