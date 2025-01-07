@@ -1,11 +1,21 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
 export const ListContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 32px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    align-items: center;
+    max-width: 100%;
+  }
 `
 
 export const Modal = styled.div`
@@ -53,6 +63,11 @@ export const ModalContent = styled.div`
   background-color: ${cores.salmao};
   gap: 24px;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .container {
     max-width: 960px;
   }
@@ -69,6 +84,11 @@ export const ModalContent = styled.div`
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 180px;
+      height: 180px;
+    }
   }
 
   .title {
@@ -80,6 +100,10 @@ export const ModalContent = styled.div`
     padding-bottom: 46px;
     font-size: 14px;
     line-height: 22px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      text-align: center;
+    }
   }
 
   .porcao {

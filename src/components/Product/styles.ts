@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CardContainer = styled.div`
   display: flex;
@@ -13,8 +13,8 @@ export const CardContainer = styled.div`
 
   img {
     object-fit: cover;
-    max-width: 472px;
     max-height: 216px;
+    max-width: 100%;
   }
 `
 
@@ -23,6 +23,7 @@ export const CardTitle = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 `
 export const CardRate = styled.div`
   display: flex;

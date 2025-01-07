@@ -12,6 +12,9 @@ import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
 import { Container } from '../../styles'
 import { Restaurantes } from '../../pages/Home'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { open } from '../../store/reducers/cart'
 
 export type GenericProps<T> = {
   cards: T[]
@@ -20,6 +23,12 @@ export type GenericProps<T> = {
 type Props = GenericProps<Restaurantes>
 
 const PerfilHeader = ({ cards }: Props) => {
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
   return (
     <>
       <PerfilBackground style={{ backgroundImage: `url(${fundoHeader})` }}>
@@ -27,7 +36,9 @@ const PerfilHeader = ({ cards }: Props) => {
           <Header>
             <HeaderTitle to={'/'}>Restaurantes</HeaderTitle>
             <Logo src={logo} alt="Logo" />
-            <HeaderCart>0 produto(s) no carrinho</HeaderCart>
+            <HeaderCart onClick={openCart}>
+              {items.length} produto(s) no carrinho
+            </HeaderCart>
           </Header>
         </Container>
       </PerfilBackground>

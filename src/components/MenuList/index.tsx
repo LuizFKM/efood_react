@@ -3,6 +3,8 @@ import MenuCard from '../MenuCard'
 import { ButtonContainer } from '../Button/style'
 import { useState } from 'react'
 import close from '../../assets/images/close.png'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 export type CardapioItem = {
   foto: string
@@ -21,6 +23,12 @@ type Props = GenericProps<CardapioItem>
 
 const MenuList = ({ cards }: Props) => {
   const [visibleModalId, setVisibleModalId] = useState<number | null>(null)
+  const dispatch = useDispatch()
+
+  const addToCart = (item: CardapioItem) => {
+    dispatch(add(item))
+    dispatch(open())
+  }
 
   return (
     <>
@@ -49,7 +57,12 @@ const MenuList = ({ cards }: Props) => {
                   <h2 className="title">{nome}</h2>
                   <p className="descricao">{descricao}</p>
                   <p className="porcao">{porcao}</p>
-                  <ButtonContainer>
+                  <ButtonContainer
+                    type="button"
+                    onClick={() =>
+                      addToCart({ id, nome, foto, descricao, porcao, preco })
+                    }
+                  >
                     Adicionar ao carrinho - R${preco.toFixed(2)}
                   </ButtonContainer>
                 </div>
