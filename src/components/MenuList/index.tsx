@@ -28,6 +28,7 @@ const MenuList = ({ cards }: Props) => {
   const addToCart = (item: CardapioItem) => {
     dispatch(add(item))
     dispatch(open())
+    setVisibleModalId(null)
   }
 
   return (

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux'
-import Hioki from '../../assets/images/Hioki_sushi.png'
 import { ButtonContainer } from '../Button/style'
 
 import { Overlay, CartContainer, SideBar, CartItem, TotalPrice } from './styles'
@@ -10,7 +9,7 @@ const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
-  const closeCart = () => {
+  const closeSidebar = () => {
     dispatch(close())
   }
 
@@ -25,7 +24,7 @@ const Cart = () => {
   }
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
+      <Overlay onClick={closeSidebar} />
       <SideBar>
         <ul>
           {items.map((item) => (
