@@ -6,7 +6,7 @@ import MenuList from '../../components/MenuList'
 import { useParams } from 'react-router-dom'
 import { useGetDishesQuery } from '../../services/api'
 import Cart from '../../components/Cart'
-import Delivery from '../../components/Delivery'
+import Delivery from '../../components/Checkout'
 
 const Perfil = () => {
   const { id } = useParams()

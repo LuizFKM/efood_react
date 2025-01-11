@@ -33,6 +33,11 @@ export const SideBar = styled.aside`
   width: 100%;
   padding: 32px 8px 0 8px;
 
+  h4 {
+    text-align: center;
+    color: ${cores.bege};
+  }
+
   ${ButtonContainer} {
     padding: 4px;
     margin-top: 8px;
