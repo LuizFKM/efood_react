@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-import { ButtonContainer } from '../Button/style'
+import Button, { Props } from '../Button'
 
 export const MenuCardContainer = styled.div`
   width: 320px;
@@ -31,16 +31,12 @@ export const MenuCardContainer = styled.div`
     font-weight: 400;
     font-size: 14px;
   }
+`
 
-  ${ButtonContainer} {
-    padding: 4px;
-    margin-top: 8px;
-    width: 100%;
-    height: 24px;
-    background-color: ${cores.bege};
-    color: ${cores.salmao};
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-  }
+export const StyledButton = styled(Button)<Omit<Props, 'children'>>`
+  background-color: ${cores.bege};
+  margin-top: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
 `

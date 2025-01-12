@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 import { cores } from '../../styles'
-import { Form } from 'react-router-dom'
+import Button, { Props } from '../Button'
+import { ButtonLink } from '../Button/style'
 
 export const DeliveryContainer = styled.div`
   position: fixed;
@@ -11,6 +12,16 @@ export const DeliveryContainer = styled.div`
   display: none;
   justify-content: flex-end;
   z-index: 2;
+
+  ${ButtonLink} {
+    background-color: ${cores.bege};
+    color: ${cores.salmao};
+    margin-top: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+  }
 
   &.is-open {
     display: flex;
@@ -55,5 +66,13 @@ export const InputGroup = styled.div`
       max-width: 100%;
       justify-content: center;
     }
+  }
+`
+export const Confirmacao = styled.div`
+  p {
+    color: ${cores.bege};
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 16px;
   }
 `

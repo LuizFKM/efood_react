@@ -1,9 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { ButtonContainer } from '../Button/style'
 
-import { Overlay, CartContainer, SideBar, CartItem, TotalPrice } from './styles'
+import { getTotalPrice } from '../../utils'
+
+import {
+  Overlay,
+  CartContainer,
+  SideBar,
+  CartItem,
+  TotalPrice,
+  StyledButton
+} from './styles'
 import { RootReducer } from '../../store'
 import { close, openCheckout, remove } from '../../store/reducers/cart'
+import Button from '../Button'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -21,11 +30,6 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-  const getTotalPrice = () => {
-    return items.reduce((acc, valorAtual) => {
-      return (acc += valorAtual.preco!)
-    }, 0)
-  }
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeSidebar} />
@@ -46,11 +50,16 @@ const Cart = () => {
             </ul>
             <TotalPrice>
               <p>Valor total</p>
-              <p>R${getTotalPrice().toFixed(2)}</p>
+              <p>R${getTotalPrice(items).toFixed(2)}</p>
             </TotalPrice>
-            <ButtonContainer onClick={checkout}>
+            <StyledButton
+              variant="menuAndCheckout"
+              type="button"
+              title="Continuar com a entrega"
+              onClick={checkout}
+            >
               Continuar com a entrega
-            </ButtonContainer>
+            </StyledButton>
           </>
         ) : (
           <h4>

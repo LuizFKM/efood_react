@@ -11,7 +11,7 @@ import {
 import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
 import { Container } from '../../styles'
-import { Restaurantes } from '../../pages/Home'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'

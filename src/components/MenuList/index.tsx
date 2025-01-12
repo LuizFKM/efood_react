@@ -5,6 +5,7 @@ import { useState } from 'react'
 import close from '../../assets/images/close.png'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
+import Button from '../Button'
 
 export type CardapioItem = {
   foto: string
@@ -58,14 +59,16 @@ const MenuList = ({ cards }: Props) => {
                   <h2 className="title">{nome}</h2>
                   <p className="descricao">{descricao}</p>
                   <p className="porcao">{porcao}</p>
-                  <ButtonContainer
+                  <Button
+                    variant="menuAndCheckout"
+                    title="Adicionar ao carrinho"
                     type="button"
                     onClick={() =>
                       addToCart({ id, nome, foto, descricao, porcao, preco })
                     }
                   >
-                    Adicionar ao carrinho - R${preco.toFixed(2)}
-                  </ButtonContainer>
+                    {`Adicionar ao carrinho - R$${preco.toFixed(2)}`}
+                  </Button>
                 </div>
                 <img
                   className="closeButton"

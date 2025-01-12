@@ -10,7 +10,6 @@ import {
 } from './styles'
 import Estrela from '../../assets/images/estrela.png'
 import { TagContainer } from '../Tag/styles'
-import { Restaurantes } from '../../pages/Home'
 
 const Product = ({
   id,
@@ -38,7 +37,12 @@ const Product = ({
       <ContainerDescription>
         <p>{descricao}</p>
       </ContainerDescription>
-      <Button type="link" to={`/perfil/${id}`} title="Saiba mais sobre o prato">
+      <Button
+        variant="cardRestaurante"
+        type="link"
+        to={`/perfil/${id}`}
+        title="Saiba mais sobre o prato"
+      >
         Saiba Mais
       </Button>
     </CardContent>

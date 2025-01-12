@@ -1,6 +1,6 @@
-import { MenuCardContainer } from './styles'
+import { MenuCardContainer, StyledButton } from './styles'
 
-import { ButtonContainer } from '../Button/style'
+import Button from '../Button'
 
 type Props = {
   id: number
@@ -23,9 +23,14 @@ const MenuCard = ({ image, title, description, onClick, id }: Props) => {
         <img src={image} alt="" />
         <h3>{title}</h3>
         <p>{getDescricao(description)}</p>
-        <ButtonContainer onClick={onClick} type="button">
+        <StyledButton
+          title="Mais detalhes"
+          variant="menuAndCheckout"
+          onClick={onClick}
+          type="button"
+        >
           Mais detalhes
-        </ButtonContainer>
+        </StyledButton>
       </MenuCardContainer>
     </>
   )

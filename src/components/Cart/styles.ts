@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 import remover from '../../assets/images/lixeira.png'
+import Button, { Props } from '../Button'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -36,19 +37,6 @@ export const SideBar = styled.aside`
   h4 {
     text-align: center;
     color: ${cores.bege};
-  }
-
-  ${ButtonContainer} {
-    padding: 4px;
-    margin-top: 8px;
-    max-width: 100%;
-    width: 100%;
-    height: 24px;
-    background-color: ${cores.bege};
-    color: ${cores.salmao};
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
   }
 `
 
@@ -101,4 +89,13 @@ export const TotalPrice = styled.div`
     font-size: 14px;
     color: ${cores.bege};
   }
+`
+export const StyledButton = styled(Button)<Omit<Props, 'children'>>`
+  background-color: ${cores.bege};
+  margin-top: 8px;
+  width: 100%;
+  margin-top: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
 `
