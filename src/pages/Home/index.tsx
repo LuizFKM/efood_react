@@ -4,6 +4,7 @@ import { Container } from '../../styles'
 import Header from '../../components/Header'
 
 import { useGetRestaurantesQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 const Home = () => {
   const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
@@ -18,7 +19,7 @@ const Home = () => {
   // console.table(restaurantes)
 
   if (!restaurantes) {
-    return <h2>Carregando...</h2>
+    return <Loader />
   }
 
   return (

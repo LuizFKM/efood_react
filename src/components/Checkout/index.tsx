@@ -1,29 +1,27 @@
 import { useEffect, useState } from 'react'
-import { Overlay } from '../Cart/styles'
-import Formulario from '../Form'
-import {
-  Confirmacao,
-  DeliveryContainer,
-  FormContainer,
-  InputGroup,
-  SideBar
-} from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { open, closeCheckout, close, clear } from '../../store/reducers/cart'
+import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
+import Formulario from '../Form'
+import Button from '../Button'
+
+import { RootReducer } from '../../store'
+import { open, closeCheckout, close, clear } from '../../store/reducers/cart'
 import { usePurchaseMutation } from '../../services/api'
 import { getTotalPrice } from '../../utils'
-import Button from '../Button'
+
 import { ButtonLink } from '../Button/style'
+import * as S from './styles'
+import { Overlay } from '../Cart/styles'
 
 const Delivery = () => {
   const { isOpen, isCheckout, items } = useSelector(
     (state: RootReducer) => state.cart
   )
   const [payment, setPayment] = useState(false)
-  const [purchase, { isSuccess, isError, data }] = usePurchaseMutation()
+  const [purchase, { isSuccess, data }] = usePurchaseMutation()
   const dispatch = useDispatch()
 
   const totalPrice = getTotalPrice(items).toFixed(2)
@@ -95,12 +93,12 @@ const Delivery = () => {
     }
   })
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
+  const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
+    const hasError = isTouched && isInvalid
 
-    if (isTouched && isInvalid) return message
-    return ''
+    return hasError
   }
 
   const closeSidebar = () => {
@@ -121,11 +119,11 @@ const Delivery = () => {
   return (
     <>
       {isSuccess && data ? (
-        <DeliveryContainer className="is-open">
+        <S.DeliveryContainer className="is-open">
           <Overlay />
-          <SideBar>
+          <S.SideBar>
             <Formulario title={`Pedido realizado - ${data.orderId}`}>
-              <Confirmacao>
+              <S.Confirmacao>
                 <p>
                   Estamos felizes em informar que seu pedido já está em processo
                   de preparação e, em breve, será entregue no endereço
@@ -152,22 +150,24 @@ const Delivery = () => {
                 >
                   Concluir
                 </ButtonLink>
-              </Confirmacao>
+              </S.Confirmacao>
             </Formulario>
-          </SideBar>
-        </DeliveryContainer>
+          </S.SideBar>
+        </S.DeliveryContainer>
       ) : (
         <form onSubmit={form.handleSubmit}>
-          <DeliveryContainer className={!isOpen && isCheckout ? 'is-open' : ''}>
+          <S.DeliveryContainer
+            className={!isOpen && isCheckout ? 'is-open' : ''}
+          >
             <Overlay onClick={closeSidebar} />
-            <SideBar>
+            <S.SideBar>
               {payment ? (
-                <FormContainer>
+                <S.FormContainer>
                   <Formulario
                     title={`Pagamento - Valor a pagar R$ ${totalPrice}`}
                   >
                     <>
-                      <InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="cardOwner">Nome no cartão</label>
                         <input
                           type="text"
@@ -176,75 +176,70 @@ const Delivery = () => {
                           value={form.values.cardOwner}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('cardOwner') ? 'error' : ''
+                          }
                         />
-                        <small>
-                          {getErrorMessage('cardOwner', form.errors.cardOwner)}
-                        </small>
-                      </InputGroup>
-                      <InputGroup>
+                      </S.InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="cardNumber">Número do cartão</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="cardNumber"
                           name="cardNumber"
                           value={form.values.cardNumber}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('cardNumber') ? 'error' : ''
+                          }
+                          mask="9999-9999-9999-99"
                         />
-                        <small>
-                          {getErrorMessage(
-                            'cardNumber',
-                            form.errors.cardNumber
-                          )}
-                        </small>
-                      </InputGroup>
-                      <InputGroup>
+                      </S.InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="cardCode">CVV</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="cardCode"
                           name="cardCode"
                           value={form.values.cardCode}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('cardCode') ? 'error' : ''
+                          }
+                          mask="999"
                         />
-                        <small>
-                          {getErrorMessage('cardCode', form.errors.cardCode)}
-                        </small>
-                      </InputGroup>
-                      <InputGroup className="cepNumero">
+                      </S.InputGroup>
+                      <S.InputGroup className="cepNumero">
                         <label htmlFor="expiresMonth">Mês de vencimento</label>
                         <label htmlFor="expiresYear">Ano de vencimento</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="expiresMonth"
                           name="expiresMonth"
                           value={form.values.expiresMonth}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('expiresMonth') ? 'error' : ''
+                          }
+                          mask="99"
                         />
 
-                        <input
+                        <InputMask
                           type="text"
                           id="expiresYear"
                           name="expiresYear"
                           value={form.values.expiresYear}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('expiresYear') ? 'error' : ''
+                          }
+                          mask="99"
                         />
-                        <small>
-                          {getErrorMessage(
-                            'expiresMonth',
-                            form.errors.expiresMonth
-                          )}
-                        </small>
-                        <small>
-                          {getErrorMessage(
-                            'expiresYear',
-                            form.errors.expiresYear
-                          )}
-                        </small>
-                      </InputGroup>
+                      </S.InputGroup>
 
                       <Button
                         type="submit"
@@ -264,12 +259,12 @@ const Delivery = () => {
                       </Button>
                     </>
                   </Formulario>
-                </FormContainer>
+                </S.FormContainer>
               ) : (
-                <FormContainer>
+                <S.FormContainer>
                   <Formulario title="Entrega">
                     <>
-                      <InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="recipientName">Quem irá receber</label>
                         <input
                           type="text"
@@ -278,15 +273,12 @@ const Delivery = () => {
                           value={form.values.recipientName}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('recipientName') ? 'error' : ''
+                          }
                         />
-                        <small>
-                          {getErrorMessage(
-                            'recipientName',
-                            form.errors.recipientName
-                          )}
-                        </small>
-                      </InputGroup>
-                      <InputGroup>
+                      </S.InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="deliveryAdress">Endereço</label>
                         <input
                           type="text"
@@ -295,15 +287,12 @@ const Delivery = () => {
                           value={form.values.deliveryAdress}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('deliveryAdress') ? 'error' : ''
+                          }
                         />
-                        <small>
-                          {getErrorMessage(
-                            'deliveryAdress',
-                            form.errors.deliveryAdress
-                          )}
-                        </small>
-                      </InputGroup>
-                      <InputGroup>
+                      </S.InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="city">Cidade</label>
                         <input
                           type="text"
@@ -312,21 +301,21 @@ const Delivery = () => {
                           value={form.values.city}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={checkInputHasError('city') ? 'error' : ''}
                         />
-                        <small>
-                          {getErrorMessage('city', form.errors.city)}
-                        </small>
-                      </InputGroup>
-                      <InputGroup className="cepNumero">
+                      </S.InputGroup>
+                      <S.InputGroup className="cepNumero">
                         <label htmlFor="cep">CEP</label>
                         <label htmlFor="numero">Número</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="cep"
                           name="cep"
                           value={form.values.cep}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={checkInputHasError('cep') ? 'error' : ''}
+                          mask="99999-999"
                         />
                         <input
                           type="text"
@@ -335,13 +324,12 @@ const Delivery = () => {
                           value={form.values.numero}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('numero') ? 'error' : ''
+                          }
                         />
-                        <small>{getErrorMessage('cep', form.errors.cep)}</small>
-                        <small>
-                          {getErrorMessage('numero', form.errors.numero)}
-                        </small>
-                      </InputGroup>
-                      <InputGroup>
+                      </S.InputGroup>
+                      <S.InputGroup>
                         <label htmlFor="addressLine2">
                           Complemento (opcional)
                         </label>
@@ -353,7 +341,7 @@ const Delivery = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                         />
-                      </InputGroup>
+                      </S.InputGroup>
                       <Button
                         type="button"
                         onClick={() => setPayment(true)}
@@ -372,10 +360,10 @@ const Delivery = () => {
                       </Button>
                     </>
                   </Formulario>
-                </FormContainer>
+                </S.FormContainer>
               )}
-            </SideBar>
-          </DeliveryContainer>
+            </S.SideBar>
+          </S.DeliveryContainer>
         </form>
       )}
     </>

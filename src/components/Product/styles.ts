@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../styles'
-import Button, { Props } from '../Button'
+import { cores } from '../../styles'
 
 export const CardContainer = styled.div`
   display: flex;

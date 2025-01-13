@@ -1,7 +1,5 @@
 import { MenuCardContainer, StyledButton } from './styles'
 
-import Button from '../Button'
-
 type Props = {
   id: number
   image: string

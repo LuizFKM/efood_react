@@ -8,5 +8,6 @@ export const List = styled.ul`
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 `

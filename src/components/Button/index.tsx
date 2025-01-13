@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { ButtonContainer, ButtonLink } from './style'
 
 export type Props = {
@@ -9,6 +8,7 @@ export type Props = {
   children: string
   variant: 'cardRestaurante' | 'menuAndCheckout'
   className?: string
+  disabled?: boolean
 }
 
 const Button = ({
@@ -18,7 +18,8 @@ const Button = ({
   onClick,
   children,
   variant,
-  className
+  className,
+  disabled
 }: Props) => {
   if (type === 'button' || type === 'submit') {
     return (
@@ -28,6 +29,7 @@ const Button = ({
         title={title}
         onClick={onClick}
         className={className}
+        disabled={disabled}
       >
         {children}
       </ButtonContainer>

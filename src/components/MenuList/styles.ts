@@ -13,8 +13,9 @@ export const ListContainer = styled.section`
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
     column-gap: 0;
-    align-items: center;
+    justify-content: center;
     max-width: 100%;
+    align-items: center;
   }
 `
 

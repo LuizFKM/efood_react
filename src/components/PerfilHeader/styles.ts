@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, Container, cores } from '../../styles'
 
 import { Link } from 'react-router-dom'
 
@@ -14,15 +14,22 @@ export const PerfilBackground = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   @media (max-width: ${breakpoints.tablet}) {
-    display: none;
+    max-width: 100%;
   }
 `
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
+    max-width: 100%;
+    align-items: stretch;
+  }
 `
 
 export const HeaderTitle = styled(Link)`
@@ -30,12 +37,18 @@ export const HeaderTitle = styled(Link)`
   font-size: 18px;
   color: ${cores.salmao};
   text-decoration: none;
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
+  }
 `
 export const HeaderCart = styled.a`
   font-weight: 900;
   font-size: 18px;
   color: ${cores.salmao};
   cursor: pointer;
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
+  }
 `
 
 export const Logo = styled.img``

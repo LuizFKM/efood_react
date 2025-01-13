@@ -1,11 +1,13 @@
-import { ListContainer, Modal, ModalContent } from './styles'
-import MenuCard from '../MenuCard'
-import { ButtonContainer } from '../Button/style'
 import { useState } from 'react'
-import close from '../../assets/images/close.png'
 import { useDispatch } from 'react-redux'
-import { add, open } from '../../store/reducers/cart'
+
 import Button from '../Button'
+import MenuCard from '../MenuCard'
+import close from '../../assets/images/close.png'
+
+import { add, open } from '../../store/reducers/cart'
+
+import { ListContainer, Modal, ModalContent } from './styles'
 
 export type CardapioItem = {
   foto: string

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import { ButtonContainer } from '../Button/style'
+import { breakpoints, cores } from '../../styles'
+
 import remover from '../../assets/images/lixeira.png'
 import Button, { Props } from '../Button'
 
@@ -37,6 +37,10 @@ export const SideBar = styled.aside`
   h4 {
     text-align: center;
     color: ${cores.bege};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 70%;
   }
 `
 
@@ -98,4 +102,7 @@ export const StyledButton = styled(Button)<Omit<Props, 'children'>>`
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
+`
+export const EmptyMessage = styled.div`
+  align-items: center;
 `

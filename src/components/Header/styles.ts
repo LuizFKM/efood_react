@@ -24,4 +24,7 @@ export const Slogan = styled.h2`
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 1.4rem;
+  }
 `

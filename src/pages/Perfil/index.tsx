@@ -7,13 +7,14 @@ import { useParams } from 'react-router-dom'
 import { useGetDishesQuery } from '../../services/api'
 import Cart from '../../components/Cart'
 import Delivery from '../../components/Checkout'
+import Loader from '../../components/Loader'
 
 const Perfil = () => {
   const { id } = useParams()
   const { data: pratos } = useGetDishesQuery(id!)
 
   if (!pratos) {
-    return <p>Carregando...</p>
+    return <Loader />
   }
 
   return (

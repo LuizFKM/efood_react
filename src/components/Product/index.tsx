@@ -1,15 +1,8 @@
 import Button from '../Button'
-
-import {
-  CardContainer,
-  CardContent,
-  CardRate,
-  CardTitle,
-  CategoryInfos,
-  ContainerDescription
-} from './styles'
 import Estrela from '../../assets/images/estrela.png'
+
 import { TagContainer } from '../Tag/styles'
+import * as S from './styles'
 
 const Product = ({
   id,
@@ -20,23 +13,23 @@ const Product = ({
   descricao,
   capa
 }: Restaurantes) => (
-  <CardContainer>
-    <CategoryInfos>
+  <S.CardContainer>
+    <S.CategoryInfos>
       {destacado ? <TagContainer>Destaque da Semana</TagContainer> : null}
       <TagContainer key={id}>{tipo}</TagContainer>
-    </CategoryInfos>
+    </S.CategoryInfos>
     <img src={capa} alt={titulo} />
-    <CardContent>
-      <CardTitle>
+    <S.CardContent>
+      <S.CardTitle>
         <h3>{titulo}</h3>
-        <CardRate>
+        <S.CardRate>
           <h3>{avaliacao}</h3>
           {destacado ? <img src={Estrela} alt="Estrela" /> : null}
-        </CardRate>
-      </CardTitle>
-      <ContainerDescription>
+        </S.CardRate>
+      </S.CardTitle>
+      <S.ContainerDescription>
         <p>{descricao}</p>
-      </ContainerDescription>
+      </S.ContainerDescription>
       <Button
         variant="cardRestaurante"
         type="link"
@@ -45,8 +38,8 @@ const Product = ({
       >
         Saiba Mais
       </Button>
-    </CardContent>
-  </CardContainer>
+    </S.CardContent>
+  </S.CardContainer>
 )
 
 export default Product

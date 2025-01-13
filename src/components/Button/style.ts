@@ -13,6 +13,10 @@ export const ButtonContainer = styled.button<Props>`
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
+
+  &.isDisabled {
+    background-color: rgb(209, 199, 190);
+  }
 `
 
 export const ButtonLink = styled(Link)`

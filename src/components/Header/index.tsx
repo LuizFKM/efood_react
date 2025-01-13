@@ -1,6 +1,7 @@
-import { HeaderBackground, Logo, Slogan } from './styles'
 import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
+
+import { HeaderBackground, Logo, Slogan } from './styles'
 
 const Header = () => (
   <>

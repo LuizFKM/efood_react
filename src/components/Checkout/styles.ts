@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
-import { cores } from '../../styles'
-import Button, { Props } from '../Button'
+import { breakpoints, cores } from '../../styles'
+
 import { ButtonLink } from '../Button/style'
 
 export const DeliveryContainer = styled.div`
@@ -33,6 +33,10 @@ export const SideBar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 32px 8px 0 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 70%;
+  }
 `
 
 export const FormContainer = styled.div``
@@ -54,6 +58,11 @@ export const InputGroup = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: #4b4b4b;
+
+    &.error {
+      border: 3px solid rgb(255, 0, 0);
+      border-radius: 2px;
+    }
   }
 
   &.cepNumero {
@@ -65,6 +74,12 @@ export const InputGroup = styled.div`
       width: 155px;
       max-width: 100%;
       justify-content: center;
+      @media (max-width: ${breakpoints.tablet}) {
+        max-width: 50%;
+      }
+    }
+    @media (max-width: ${breakpoints.tablet}) {
+      column-gap: 0;
     }
   }
 `

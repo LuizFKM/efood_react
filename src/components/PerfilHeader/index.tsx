@@ -1,13 +1,4 @@
-import {
-  PerfilBackground,
-  Logo,
-  ImgBackground,
-  Header,
-  HeaderTitle,
-  HeaderCart,
-  Title,
-  Subtitle
-} from './styles'
+import * as S from './styles'
 import fundoHeader from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo.png'
 import { Container } from '../../styles'
@@ -31,28 +22,28 @@ const PerfilHeader = ({ cards }: Props) => {
   }
   return (
     <>
-      <PerfilBackground style={{ backgroundImage: `url(${fundoHeader})` }}>
+      <S.PerfilBackground style={{ backgroundImage: `url(${fundoHeader})` }}>
         <Container>
-          <Header>
-            <HeaderTitle to={'/'}>Restaurantes</HeaderTitle>
-            <Logo src={logo} alt="Logo" />
-            <HeaderCart onClick={openCart}>
+          <S.Header>
+            <S.HeaderTitle to={'/'}>Restaurantes</S.HeaderTitle>
+            <S.Logo src={logo} alt="Logo" />
+            <S.HeaderCart onClick={openCart}>
               {items.length} produto(s) no carrinho
-            </HeaderCart>
-          </Header>
+            </S.HeaderCart>
+          </S.Header>
         </Container>
-      </PerfilBackground>
+      </S.PerfilBackground>
       {cards.map((card, id) => (
-        <ImgBackground
+        <S.ImgBackground
           className="overlay"
           key={id}
           style={{ backgroundImage: `url(${card.capa})` }}
         >
           <div className="container">
-            <Title>{card.tipo}</Title>
-            <Subtitle>{card.titulo}</Subtitle>
+            <S.Title>{card.tipo}</S.Title>
+            <S.Subtitle>{card.titulo}</S.Subtitle>
           </div>
-        </ImgBackground>
+        </S.ImgBackground>
       ))}
     </>
   )
